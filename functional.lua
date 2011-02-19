@@ -1,3 +1,12 @@
+-- functional.lua
+-- Contains various algorithms and constructs used for functional programming.
+-- 
+-- Convention wise, all functions without any suffix work on a list/array
+-- and do not mutate their arguments.  Those suffixed with a 't' work on
+-- tables instead of lists (the lambda takes in a key and value pair).
+
+-- List Functions --
+
 -- Applies lambda to all values in list.  The resulting values returned
 -- from the lambda are then used to form a new list, which is returned.
 -- Note that list and lambda are not modified.
@@ -30,3 +39,4 @@ function filter(list, lambda)
 
 	 return result
 end
+
