@@ -5,46 +5,46 @@
 table = table or {}
 
 -- Returns the number of elements in tbl
-table.size = function (tbl)
-	 local counter = 0
+function table.size(tbl)
+   local counter = 0
 
-	 for k, v in pairs(tbl) do
-			counter = counter + 1
-	 end
+   for k, v in pairs(tbl) do
+      counter = counter + 1
+   end
 
-	 return counter
+   return counter
 end
 
 -- If t1 and t2 contain the same k, v pairs then they will be considered
 -- equal.  Note that this doesn't do a deep equals (key/value elements
 -- that are tables themselves are not compared with this method)
-table.equal = function (t1, t2)
-	 if table.size(t1) == table.size(t2) then
-			for k, v in pairs(t1) do
-				 if v ~= t2[k] then
-						return false
-				 end
-			end
+function table.equals(t1, t2)
+   if table.size(t1) == table.size(t2) then
+      for k, v in pairs(t1) do
+         if v ~= t2[k] then
+            return false
+         end
+      end
 
-			return true
-	 else
-			return false
-	 end
+      return true
+   else
+      return false
+   end
 end
 
 function reverse_iter(a, i)
-	 i = i - 1
+   i = i - 1
 
-	 local v = a[i]
-	 if v then
-			return i, v
-	 end
+   local v = a[i]
+   if v then
+      return i, v
+   end
 end
 
 -- Reverse iterator over tables.  Used just like ipairs is used, but
 -- will return elements in reverse order.
 function ripairs(a)
-	 return reverse_iter, a, table.size(a) + 1
+   return reverse_iter, a, table.size(a) + 1
 end
 
 -- Creates a new table and copies the contents of table into the
@@ -70,12 +70,13 @@ function table.contains_value(list, value)
       if value == v then
         return true
       end
-	 end
+   end
 
-	 return false
+   return false
 end
 
 -- Returns true if a table is empty
 function table.is_empty(tbl)
-	 return table.size(tbl) == 0
+   return table.size(tbl) == 0
 end
+ 

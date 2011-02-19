@@ -15,13 +15,13 @@ require "table-helpers"
 --
 -- Lambda should take in a value and return a value
 function map(list, lambda)
-	 local result = {}
+   local result = {}
 
-	 for k, v in ipairs(list) do
-			result[k] = lambda(v)
-	 end
+   for k, v in ipairs(list) do
+      result[k] = lambda(v)
+   end
 
-	 return result
+   return result
 end
 
 -- Used to reduce items in a list based on a critiera.  This will create
@@ -31,15 +31,15 @@ end
 --
 -- Lambda should take a single value and return true or false
 function filter(list, lambda)
-	 local result = {}
+   local result = {}
 
-	 for k, v in ipairs(list) do
-			if lambda(v) then
-				 table.insert(result, v)
-			end
-	 end
+   for k, v in ipairs(list) do
+      if lambda(v) then
+         table.insert(result, v)
+      end
+   end
 
-	 return result
+   return result
 end
 
 -- Used to reduce a list.  This will return a list starting with the
@@ -51,31 +51,31 @@ end
 -- where value is the next list value and current is the current accumulated
 -- value.
 function foldl(list, lambda, initial_value)
-	 local result = initial_value
+   local result = initial_value
 
-	 for k, v in ipairs(list) do
-			result = lambda(v, result)
-	 end
+   for k, v in ipairs(list) do
+      result = lambda(v, result)
+   end
 
-	 return result
+   return result
 end
 
 -- Same as foldl, except it reduces from the right side of the list instead
 -- of the left side.
 function foldr(list, lambda, initial_value)
-	 local result = initial_value
+   local result = initial_value
 
-	 for k, v in ripairs(list) do
-			result = lambda(v, result)
-	 end
+   for k, v in ripairs(list) do
+      result = lambda(v, result)
+   end
 
-	 return result
+   return result
 end
 
 -- Applies lambda to each element.  This does not return a result - it
 -- simply applies the given lambda to each value in the list.
 function foreach(list, lambda)
-	 for k, v in ipairs(list) do
-			lambda(v)
-	 end
+   for k, v in ipairs(list) do
+      lambda(v)
+   end
 end
