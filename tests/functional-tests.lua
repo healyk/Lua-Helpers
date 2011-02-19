@@ -34,9 +34,21 @@ function foldr_test()
 	 return unit_test.assert(expected, result, "foldr failed!")
 end
 
+function foreach_test()
+	 local nums = { 1, 2, 3, 4, 5 }
+	 local expected = { 1, 2, 3, 4, 5 }
+	 local result = {}
+	 local func = function (v) table.insert(result, v) end
+
+	 foreach(nums, func)
+
+	 return unit_test.assert(expected, result, "foreach failed!")
+end
+
 print("Beginning tests....")
 unit_test.run_test(map_test, "map_test")
 unit_test.run_test(filter_test, "filter_test")
 unit_test.run_test(foldl_test, "foldl_test")
 unit_test.run_test(foldr_test, "foldr_test")
+unit_test.run_test(foreach_test, "foreach_test")
 print("End tests")

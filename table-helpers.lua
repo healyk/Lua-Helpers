@@ -32,7 +32,6 @@ table.equal = function (t1, t2)
 	 end
 end
 
--- Reverse iterator over tables
 function reverse_iter(a, i)
 	 i = i - 1
 
@@ -42,6 +41,8 @@ function reverse_iter(a, i)
 	 end
 end
 
+-- Reverse iterator over tables.  Used just like ipairs is used, but
+-- will return elements in reverse order.
 function ripairs(a)
 	 return reverse_iter, a, table.size(a) + 1
 end

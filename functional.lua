@@ -71,3 +71,11 @@ function foldr(list, lambda, initial_value)
 
 	 return result
 end
+
+-- Applies lambda to each element.  This does not return a result - it
+-- simply applies the given lambda to each value in the list.
+function foreach(list, lambda)
+	 for k, v in ipairs(list) do
+			lambda(v)
+	 end
+end
