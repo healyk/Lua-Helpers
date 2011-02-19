@@ -39,4 +39,3 @@ function filter(list, lambda)
 
 	 return result
 end
-
