@@ -5,7 +5,7 @@
 -- and do not mutate their arguments.  Those suffixed with a 't' work on
 -- tables instead of lists (the lambda takes in a key and value pair).
 
-require "table"
+require "table-helpers"
 
 -- List Functions --
 

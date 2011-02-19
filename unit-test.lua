@@ -1,7 +1,7 @@
 -- unit-test.lua
 -- Helper functions for doing unit tests.
 
-require "table"
+require "table-helpers"
 
 unit_test = unit_test or {}
 
