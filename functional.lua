@@ -5,6 +5,8 @@
 -- and do not mutate their arguments.  Those suffixed with a 't' work on
 -- tables instead of lists (the lambda takes in a key and value pair).
 
+require "table"
+
 -- List Functions --
 
 -- Applies lambda to all values in list.  The resulting values returned
@@ -35,6 +37,36 @@ function filter(list, lambda)
 			if lambda(v) then
 				 table.insert(result, v)
 			end
+	 end
+
+	 return result
+end
+
+-- Used to reduce a list.  This will return a list starting with the
+-- left-most element.  This takes in a list, lambda, and a initial
+-- value.  The initial value is passed as the current value to the first
+-- lambda call.
+--
+-- The lambda passed in should take two values - (value, current) where
+-- where value is the next list value and current is the current accumulated
+-- value.
+function foldl(list, lambda, initial_value)
+	 local result = initial_value
+
+	 for k, v in ipairs(list) do
+			result = lambda(v, result)
+	 end
+
+	 return result
+end
+
+-- Same as foldl, except it reduces from the right side of the list instead
+-- of the left side.
+function foldr(list, lambda, initial_value)
+	 local result = initial_value
+
+	 for k, v in ripairs(list) do
+			result = lambda(v, result)
 	 end
 
 	 return result

@@ -31,3 +31,17 @@ table.equal = function (t1, t2)
 			return false
 	 end
 end
+
+-- Reverse iterator over tables
+function reverse_iter(a, i)
+	 i = i - 1
+
+	 local v = a[i]
+	 if v then
+			return i, v
+	 end
+end
+
+function ripairs(a)
+	 return reverse_iter, a, table.size(a) + 1
+end

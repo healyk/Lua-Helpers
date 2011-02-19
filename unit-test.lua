@@ -5,17 +5,20 @@ require "table"
 
 unit_test = unit_test or {}
 
-function unit_test.assert(expected, result, failure_message)
+function unit_test.assert(expected, actual, failure_message)
 	 local success = true
 
-	 if type(result) == "table" and not table.equal(expected, result) then
+	 if type(actual) == "table" and not table.equal(expected, actual) then
 			success = false
-	 elseif type(result) ~= "table" and expected ~= result then
+	 elseif type(actual) ~= "table" and expected ~= actual then
 			success = false				 
 	 end
 
 	 if not success then
-			print("== FAILURE! ==\n" .. failure_message .. "\n=============")
+			print("== FAILURE! ==\n" .. failure_message)
+			print("Expected: " .. expected)
+			print("Actual: " .. actual)
+			print("==============\n")
 			return false
 	 end
 
