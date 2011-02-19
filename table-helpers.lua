@@ -46,3 +46,36 @@ end
 function ripairs(a)
 	 return reverse_iter, a, table.size(a) + 1
 end
+
+-- Creates a new table and copies the contents of table into the
+-- new table.
+function table.copy(tbl)
+   local result = {}
+
+   util.table.copy(tbl, result)
+   return result
+end
+
+-- Copies everything from src into dest.  Note that this is a shallow
+-- copy.
+function table.copy(src, dest)
+   for k, v in pairs(src) do
+      dest[k] = v
+   end
+end
+
+-- Returns true if the list contains value
+function table.contains_value(list, value)
+   for k, v in pairs(list) do
+      if value == v then
+        return true
+      end
+	 end
+
+	 return false
+end
+
+-- Returns true if a table is empty
+function table.is_empty(tbl)
+	 return table.size(tbl) == 0
+end
