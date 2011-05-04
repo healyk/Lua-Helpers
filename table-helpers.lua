@@ -49,10 +49,10 @@ end
 
 -- Creates a new table and copies the contents of table into the
 -- new table.
-function table.copy(tbl)
+function table.clone(tbl)
    local result = {}
 
-   util.table.copy(tbl, result)
+   table.copy(tbl, result)
    return result
 end
 
