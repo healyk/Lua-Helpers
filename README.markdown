@@ -23,8 +23,10 @@ Includes simple assertions for unit testing.
   * table.size - how many elements is the table?
   * table.equal - do two tables contain the same key, value pairs?
   * ripairs - reverse ipair iteration construct
-  * copy - copies a table to a dest or new table
-  * contains_value - does this table contain this value?
+  * table.clone - creates a copy of a given table
+  * table.copy - copies a table's contents into another table
+  * table.contains_value - does this table contain this value?
+  * table.is_empty - does the table contain no values?
 
 ## License
 
